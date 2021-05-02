@@ -20,3 +20,8 @@ Cabe resaltar que la última sección del python que hace el insert de todas las
 
 ## sql
 Contiene la información de la creación de la base de datos y las tablas requeridas para el funcionamiento del modelo.
+- contiene los procedimientos almacenados para las queries que realiza el front
+
+## run node
+- La pagina web no maneja excepciones por lo tanto si se presenta una excepción de sql el servicio se cae y toca volverlo a subir. Para subir el servicio se ingresa al servidor y se corre el siguiente comando forever start bin/www.
+- Correr en desarrollo: npm run dev

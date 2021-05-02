@@ -34,7 +34,7 @@ df_users= pd.read_csv('active_user.csv')
 print("Finish reading file and dtaframes")
 
 # Create a new record
-sql_users = "INSERT INTO `users` (`email`, `password`) VALUES (%s, %s)"
+sql_users = "INSERT INTO `users` (`user_id`,`email`, `password`) VALUES (%s, %s, %s)"
 
 def isNaN(string):
     return string != string
@@ -44,7 +44,7 @@ for i in df_users.index:
   var1= None if isNaN(df_users['user_id'][i]) else ''.join([c for c in df_users['user_id'][i].strip() if c not in ['\t', '\n', '\f', '\r','\u000B','\u0085','\u2028','\u2029','\u0022', '\u005C', '\u0027', '"']]) 
 
   try:
-    cursor.execute(sql_users, (var1+'@email.com',var2))
+    cursor.execute(sql_users, (var1,var1+'@email.com',var2))
   except mysql.connector.errors.DataError as err:
     print("Track var 1: "+ var1+ " ")
     sys.exit(1)

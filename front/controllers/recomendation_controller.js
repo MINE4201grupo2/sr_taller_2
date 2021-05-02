@@ -15,16 +15,21 @@ module.exports.listRecomendations=function(req,res){
             if(!data.categoria== 'ALL'){
                 limit= 20
             }
-
-    
             var sql = `CALL getRecomendation (?,?,?)`
             //console.log(inserts)
             connection.query(sql,[userId,data.categoria, limit], function (error, results, fields) {
                 if (error) throw error
                 //console.log(results[0])
+
+                
+                docs=[]
                 res.render('pages/recomendations/recomendations',{title: 'getArtists',
                                                                 userProfile: { email: req.session.email },
-                                                                business: results[0]})
+                                                                business: results[0],
+                                                                    "jmap" : docs,
+                                                                    lat : 40.78854,
+                                                                    lng : -73.96374
+                                                                })
 
             });
         });
