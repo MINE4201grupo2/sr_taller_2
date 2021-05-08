@@ -26,4 +26,9 @@ block content
                             option=val     
                   .row
                     .col-xs-12.tr
+                      select(name='ciudad',  value=`${val}`)
+                        each val in cities
+                            option=val     
+                  .row
+                    .col-xs-12.tr
                       button.primary.w-100-xs(type="submit") aplicar filtros

@@ -63,7 +63,29 @@ module.exports = (app) => {
                                                           categorias: ['ALL','Restaurants','Food','Shopping','Home Services','Health & Medical',
                                                           'Beauty & Spas','Local Services','Automotive','Event Planning & Services',
                                                           'Nightlife','Active Life','Bars','Coffee & Tea','Hotels & Travel','Sandwiches',
-                                                          'Hair Salons','Fashion','Real Estate','Home & Garden','Auto Repair' ] });
+                                                          'Hair Salons','Fashion','Real Estate','Home & Garden','Auto Repair' ] ,
+                                                          cities: [
+                                                          'Boulder',
+                                                          'Austin',
+                                                          'Portland',
+                                                          'Vancouver',
+                                                          'Atlanta',
+                                                          'Orlando',
+                                                          'Boston',
+                                                          'Columbus',
+                                                          'Beaverton',
+                                                          'Cambridge',
+                                                          'Kissimmee',
+                                                          'Burnaby',
+                                                          'Richmond',
+                                                          'Decatur',
+                                                          'Winter Park',
+                                                          'Somerville',
+                                                          'Quincy',
+                                                          'North Vancouver',
+                                                          'Tigard',
+                                                          'Brookline']
+                                                        });
     }else{
         res.redirect('/iniciar-sesion');
     }   

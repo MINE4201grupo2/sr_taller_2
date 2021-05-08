@@ -15,9 +15,9 @@ module.exports.listRecomendations=function(req,res){
             if(!data.categoria== 'ALL'){
                 limit= 20
             }
-            var sql = `CALL getRecomendation (?,?,?)`
+            var sql = `CALL getRecomendation (?,?,?,?)`
             //console.log(inserts)
-            connection.query(sql,[userId,data.categoria, limit], function (error, results, fields) {
+            connection.query(sql,[userId,data.categoria,data.ciudad, limit], function (error, results, fields) {
                 if (error) throw error
                 //console.log(results[0])
 

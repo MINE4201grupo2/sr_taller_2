@@ -1,6 +1,6 @@
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `getRecomendation`;
-CREATE PROCEDURE `getRecomendation`(IN par_user_id varchar(255),IN par_categoria VARCHAR(50), IN par_limit INT)
+CREATE PROCEDURE `getRecomendation`(IN par_user_id varchar(255),IN par_categoria VARCHAR(50),IN par_city VARCHAR(50), IN par_limit INT)
 BEGIN
 	IF (par_limit IS NOT NULL) THEN
 		SELECT b.*, rb.recomendation_score FROM business b
@@ -15,6 +15,7 @@ BEGIN
 			ON rb.business_id = b.business_id
 		WHERE rb.user_id = par_user_id
 			AND b.categories LIKE concat('%',par_categoria,'%')
+			AND b.city = par_city
 		ORDER BY rb.recomendation_score DESC;
         
 	END IF;
