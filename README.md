@@ -25,3 +25,17 @@ Contiene la información de la creación de la base de datos y las tablas requer
 ## run node
 - La pagina web no maneja excepciones por lo tanto si se presenta una excepción de sql el servicio se cae y toca volverlo a subir. Para subir el servicio se ingresa al servidor y se corre el siguiente comando forever start bin/www.
 - Correr en desarrollo: npm run dev
+
+## data to test
+Este archivo contiene una pequeña lista de unos ids, con las recomendaciones que tiene disponibles por ciudad. Son sólo 100 si se quieren más ejemplos se puede correr la siguiente query 
+
+```
+SELECT DISTINCT rb.user_id, b.city FROM business b
+        INNER JOIN recomendations_business rb
+			ON rb.business_id = b.business_id
+		inner join users u ON u.user_id = rb.user_id
+            -- where user_id ='HM3rIdfI3kDl6C9FryGi5A'
+        limit 100;
+        
+        
+```
