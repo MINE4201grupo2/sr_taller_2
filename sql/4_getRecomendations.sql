@@ -7,7 +7,7 @@ BEGIN
         INNER JOIN recomendations_business rb
 			ON rb.business_id = b.business_id
 		WHERE rb.user_id = par_user_id
-        ORDER BY rb.recomendation_scorE DESC
+        ORDER BY rb.recomendation_score DESC
         LIMIT par_limit;
 	ELSE
 		SELECT b.*, rb.recomendation_score FROM business b
